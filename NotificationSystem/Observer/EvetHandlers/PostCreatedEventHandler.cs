@@ -13,7 +13,6 @@ public class PostCreatedEventHandler : IEventHandler<PostCreatedEvent>
             return;
 
         var post = postEvent.GetData() as Post;
-
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("========== [POST CREATED EVENT] ==========");
         Console.ResetColor();
@@ -22,6 +21,8 @@ public class PostCreatedEventHandler : IEventHandler<PostCreatedEvent>
         Console.WriteLine($"Post ID: {post?.Guid}");
         Console.WriteLine($"Title: {post?.Title}");
         Console.WriteLine($"Created By: {post?.CreatedBy}");
+        Console.WriteLine($"Created By: {post?.User?.ToString()}");
+
 
         Console.WriteLine("==========================================\n");
     }

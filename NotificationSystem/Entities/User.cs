@@ -19,4 +19,10 @@ public class User : IEntity
 
     //Navigation Property
     public virtual IReadOnlyCollection<Post> Posts { get; set; }
+
+
+    public override string ToString()
+    {
+        return $"User: {Username} ({FirstName} {LastName}), Email: {Email}, Active: {IsActive}, Created: {CreatedAt}";
+    }
 }

@@ -1,5 +1,8 @@
-﻿using NotificationSystem.Entities;
+﻿using NotificationSystem.BaseClsses;
+using NotificationSystem.Contracts;
+using NotificationSystem.Entities;
 using NotificationSystem.Observer.Events;
+using NotificationSystem.Observer.EvetHandlers;
 using NotificationSystem.Observer.Handlers;
 using NotificationSystem.Observer.Subscribers.PostNotifications;
 
@@ -7,15 +10,23 @@ public class Program
 {
     public static void Main()
     {
+
+        Dictionary<Type, IEventHandler<BaseEvent>> Observers = new()
+        {
+            [typeof(PostCreatedEvent)] = new PostCreatedEventHandler(),
+            [typeof(PostLikedEvent)] = new PostLikedEventHandler(),
+            [typeof(UserFollowedEvent)] = new UserFolowedEventHandler()
+        };
+
         //Observable
         var engine = new SocialMediaProvider();
-        
+
         //Observers
-        var emailNotification = new EmailNotification();
-        var pushNotification = new PushNotification();
-        var smsNotification = new SmsNotification();
-        
-        
+        var emailNotification = new EmailNotification(Observers);
+        var pushNotification = new PushNotification(Observers);
+        var smsNotification = new SmsNotification(Observers);
+
+
         //event
 
         var post = new Post(
@@ -48,15 +59,15 @@ public class Program
             }
         };
         var postCreatedEvent = new PostCreatedEvent(post);
-        
+
         engine.Subscribe(emailNotification);
         engine.Subscribe(pushNotification);
         engine.Subscribe(smsNotification);
-        
+
 
         engine.Notify(postCreatedEvent);
-        
-    
+
+
     }
 }
 

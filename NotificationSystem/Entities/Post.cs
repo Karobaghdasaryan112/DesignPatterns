@@ -13,7 +13,9 @@ public class Post(string content, string title, string createdBy, string lastMod
     public DateTime LastModifiedOn { get; set; }
     public string LastModifiedBy { get; set; } = lastModifiedBy;
     public bool IsDeleted { get; set; }
-    
+
     //Navigation Property
     public virtual User User { get; set; }
+
+
 }
