@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Decorator\" />
+    <Folder Include="Factory\" />
+    <Folder Include="Observer\CustomObserver Implementation\Events\" />
+    <Folder Include="Observer\CustomObserver Implementation\Observers\" />
+    <Folder Include="Observer\CustomObserver Implementation\Observable\" />
+    <Folder Include="Observer\Distributed Microservice Health Monitor\Events\" />
+    <Folder Include="Observer\Distributed Microservice Health Monitor\Observable\" />
+    <Folder Include="Observer\Distributed Microservice Health Monitor\Observers\" />
+    <Folder Include="Observer\High-Frequency Trading\Events\" />
+    <Folder Include="Observer\High-Frequency Trading\Observables\" />
+    <Folder Include="Observer\High-Frequency Trading\Observers\" />
+    <Folder Include="Observer\Multi-Level LoT Sensor Dashboard\Events\" />
+    <Folder Include="Observer\Multi-Level LoT Sensor Dashboard\Observables\" />
+    <Folder Include="Observer\Multi-Level LoT Sensor Dashboard\Observers\" />
+    <Folder Include="Observer\Real-Time Collaborative Document Editor\Events\" />
+    <Folder Include="Observer\Real-Time Collaborative Document Editor\Observable\" />
+    <Folder Include="Observer\Real-Time Collaborative Document Editor\Observers\" />
+    <Folder Include="Strategy\" />
+  </ItemGroup>
+
+</Project>
